@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Note from './Note'
 import COLORS from './colors'
 import './Stave.css';
 
@@ -9,14 +10,13 @@ class Line extends Component {
     const class_name = `line ${COLORS[string - 1]}`
     return (
       <div className={class_name}>
-        <div className="center_line">
-          {
-            note === current_note ?
-              <div className="note" />
-            :
-              null
-          }
-        </div>
+        {
+          note === current_note ?
+            <Note />
+          :
+            null
+        }
+        <div className="center_line" />
       </div>
     );
   }

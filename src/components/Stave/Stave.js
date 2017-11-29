@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import Line from './Line'
 import Void from './Void'
 import SolKey from './SolKey'
-import './Stave.css';
+import Note from './Note'
+import './Stave.css'
 
 class Stave extends Component {
   render() {

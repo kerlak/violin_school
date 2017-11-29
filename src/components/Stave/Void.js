@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Note from './Note'
 import COLORS from './colors'
 import './Stave.css';
 
@@ -11,7 +12,7 @@ class Void extends Component {
       <div className={class_name}>
         {
           note === current_note ?
-            <div className="note" />
+            <Note />
           :
             null
         }
