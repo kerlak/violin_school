@@ -11,22 +11,22 @@ class Stave extends Component {
     return (
       <div className="StaveWrapper">
         <div className="Stave">
-          <Void string={1} note={16} current_note={this.props.current_note}/>
-          <Void string={1} note={15} current_note={this.props.current_note}/>
-          <Line string={1} note={14} current_note={this.props.current_note}/>
-          <Void string={1} note={13} current_note={this.props.current_note}/>
-          <Line string={2} note={12} current_note={this.props.current_note}/>
-          <Void string={2} note={11} current_note={this.props.current_note}/>
-          <Line string={2} note={10} current_note={this.props.current_note}/>
-          <Void string={2} note={9} current_note={this.props.current_note}/>
-          <Line string={3} note={8} current_note={this.props.current_note}/>
-          <Void string={3} note={7} current_note={this.props.current_note}/>
-          <Line string={3} note={6} current_note={this.props.current_note}/>
-          <Void string={3} note={5} current_note={this.props.current_note}/>
-          <Void string={4} note={4} current_note={this.props.current_note}/>
-          <Void string={4} note={3} current_note={this.props.current_note}/>
-          <Void string={4} note={2} current_note={this.props.current_note}/>
-          <Void string={4} note={1} current_note={this.props.current_note}/>
+          <Void string={1} note={16} {...this.props}/>
+          <Void string={1} note={15} {...this.props}/>
+          <Line string={1} note={14} {...this.props}/>
+          <Void string={1} note={13} {...this.props}/>
+          <Line string={2} note={12} {...this.props}/>
+          <Void string={2} note={11} {...this.props}/>
+          <Line string={2} note={10} {...this.props}/>
+          <Void string={2} note={9} {...this.props}/>
+          <Line string={3} note={8} {...this.props}/>
+          <Void string={3} note={7} {...this.props}/>
+          <Line string={3} note={6} {...this.props}/>
+          <Void string={3} note={5} {...this.props}/>
+          <Void string={4} note={4} {...this.props}/>
+          <Void string={4} note={3} {...this.props}/>
+          <Void string={4} note={2} {...this.props}/>
+          <Void string={4} note={1} {...this.props}/>
           <SolKey />
         </div>
       </div>
@@ -35,7 +35,8 @@ class Stave extends Component {
 }
 
 Stave.propTypes = {
-  current_note: PropTypes.number
+  current_note: PropTypes.number,
+  show_string_colors: PropTypes.bool
 };
 
 

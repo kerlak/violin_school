@@ -6,8 +6,12 @@ import './Stave.css';
 
 class Void extends Component {
   render() {
-    const { string, note, current_note } = this.props
-    const class_name = `void ${COLORS[string - 1]}`
+    const { string, note, current_note, show_string_colors } = this.props
+    const class_name =
+      show_string_colors ?
+        `line ${COLORS[string - 1]}`
+      :
+        'line'
     return (
       <div className={class_name}>
         {
@@ -24,7 +28,8 @@ class Void extends Component {
 Void.propTypes = {
   string: PropTypes.number,
   note: PropTypes.number,
-  current_note: PropTypes.number
+  current_note: PropTypes.number,
+  show_string_colors: PropTypes.bool
 };
 
 export default Void;
