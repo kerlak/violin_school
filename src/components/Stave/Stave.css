@@ -1,5 +1,5 @@
 .StaveWrapper {
-  height: calc(100vh / 6);
+  height: calc(100vh / 4);
   width: 100vw;
   /*border: 1px solid black;*/
 
@@ -32,14 +32,45 @@
 
 .void {
   /*background-color: green;*/
+  position: relative;
 }
 
 .SolKey {
   /*border: 1px solid black;*/
-  height: calc(100vh / 6);
+  height: calc(100vh / 5);
   top: 0px;
   left: 0px;
   padding-left: 10px;
   position: absolute;
   box-sizing: border-box;
+}
+
+
+.string_red {
+  background-color: #ff000022;
+}
+.string_blue {
+  background-color: #0000ff22;
+}
+.string_green {
+  background-color: #00ff0022;
+}
+.string_orange {
+  background-color: #aaaa0022;
+}
+
+.note {
+  position: absolute;
+  top: -2px;
+  left: calc(100vw / 2);
+  width: calc(100vh / 32);
+  height: calc(100vh / 50);
+  background-color: black;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+.line .note {
+  position: relative;
+  top: -5px;
 }
