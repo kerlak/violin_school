@@ -1,6 +1,7 @@
 
 import React, { Component } from 'react';
 import Stave from './components/Stave/'
+import NotesButtons from './components/NotesButtons/'
 import './App.css';
 
 class App extends Component {
@@ -8,18 +9,38 @@ class App extends Component {
     super(props)
 
     this.state = {
-      random_note: -1
+      total_success: 0,
+      total_fail: 0,
+      random_note: -1,
+      can_fail: false
     }
 
     this.change_note = this.change_note.bind(this)
+    this.success_callback = this.success_callback.bind(this)
+    this.fail_callback = this.fail_callback.bind(this)
   }
 
   change_note() {
-    this.setState(
-      {
-        random_note: Math.floor(Math.random()*16) + 1
-      }
-    )
+    this.setState({
+      random_note: Math.floor(Math.random()*16) + 1,
+      can_fail: true
+    })
+  }
+
+  success_callback() {
+    if(this.state.can_fail) {
+      this.setState({ total_success: this.state.total_success + 1 })  
+    }
+    this.change_note()
+  }
+
+  fail_callback() {
+    if(this.state.can_fail) {
+      this.setState({
+        total_fail: this.state.total_fail + 1,
+        can_fail: false
+      })
+    }
   }
 
   componentDidMount() {
@@ -27,14 +48,20 @@ class App extends Component {
   }
 
   render() {
+    const { total_fail, total_success } = this.state
     return (
-      <div className="App" onClick={this.change_note}>
+      <div className="App">
+        <p>Precision: {total_success} / {total_success + total_fail}</p>
         <div className="App-center">
-          <div className="App-row">
+          <div className="App-row" onClick={this.change_note}>
             <Stave current_note={this.state.random_note}/>
           </div>
           <div className="App-row">
-            <Stave current_note={this.state.random_note}/>
+            <NotesButtons
+              current_note={this.state.random_note}
+              success_callback={this.success_callback}
+              fail_callback={this.fail_callback}
+              />
           </div>
           <div className="App-row">
             <Stave current_note={this.state.random_note}/>
