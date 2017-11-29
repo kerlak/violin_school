@@ -11,7 +11,7 @@ class Stave extends Component {
     return (
       <div className="StaveWrapper">
         <div className="Stave">
-          <Void string={1} note={16} {...this.props}/>
+          <Line string={1} note={16} {...this.props} hidden={true}/>
           <Void string={1} note={15} {...this.props}/>
           <Line string={1} note={14} {...this.props}/>
           <Void string={1} note={13} {...this.props}/>
@@ -23,9 +23,9 @@ class Stave extends Component {
           <Void string={3} note={7} {...this.props}/>
           <Line string={3} note={6} {...this.props}/>
           <Void string={3} note={5} {...this.props}/>
-          <Void string={4} note={4} {...this.props}/>
+          <Line string={4} note={4} {...this.props} hidden={true}/>
           <Void string={4} note={3} {...this.props}/>
-          <Void string={4} note={2} {...this.props}/>
+          <Line string={4} note={2} {...this.props} hidden={true}/>
           <Void string={4} note={1} {...this.props}/>
           <SolKey />
         </div>

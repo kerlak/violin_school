@@ -31,6 +31,11 @@
   box-sizing: border-box;
 }
 
+.line .center_line.short {
+  margin-left: 10px;
+  margin: 0 calc(45%) 0 calc(45%);
+}
+
 .void {
   /*background-color: green;*/
   display: flex;
@@ -65,13 +70,18 @@
 .note {
   position: absolute;
   height: 100%;
+  width: 100%;
   border: 1px solid transparent;
-  padding-left: 50%;
+  text-align: center;
   box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .note svg {
   position: absolute;
+  flex: 1;
   height: 250%;
   top: -75%;
 }
