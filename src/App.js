@@ -4,6 +4,8 @@ import Stave from './components/Stave/'
 import NotesButtons from './components/NotesButtons/'
 import './App.css';
 
+const MAX_NUM_NOTES = 16
+
 class App extends Component {
   constructor(props) {
     super(props)
@@ -13,7 +15,8 @@ class App extends Component {
       total_fail: 0,
       random_note: -1,
       can_fail: false,
-      show_string_colors: true
+      show_string_colors: true,
+      notes_to_avoid: [1,2,3,16]
     }
 
     this.change_note = this.change_note.bind(this)
@@ -24,8 +27,14 @@ class App extends Component {
   }
 
   change_note() {
+    const { notes_to_avoid } = this.state
+    const previous_note = this.state.random_note
+    let new_note = previous_note
+    while(new_note === previous_note || notes_to_avoid.includes(new_note)) {
+      new_note = Math.floor(Math.random() * MAX_NUM_NOTES) + 1
+    }
     this.setState({
-      random_note: Math.floor(Math.random()*16) + 1,
+      random_note: new_note,
       can_fail: true
     })
   }
