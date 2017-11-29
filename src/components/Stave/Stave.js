@@ -33,7 +33,7 @@ class Stave extends Component {
   }
 }
 
-Void.propTypes = {
+Stave.propTypes = {
   current_note: PropTypes.number
 };
 
